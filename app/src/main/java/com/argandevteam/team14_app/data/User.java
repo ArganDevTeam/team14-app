@@ -1,5 +1,7 @@
 package com.argandevteam.team14_app.data;
 
+import java.util.List;
+
 /**
  * Created by markc on 20/01/2018.
  */
@@ -7,12 +9,14 @@ package com.argandevteam.team14_app.data;
 public class User {
     String name;
     String type;
-    int sentitivity;
+    List<Place> places;
+    int sensitivity;
 
-    public User(String name, String type, int sentitivity) {
+    public User(String name, String type, List<Place> places, int sensitivity) {
         this.name = name;
         this.type = type;
-        this.sentitivity = sentitivity;
+        this.places = places;
+        this.sensitivity = sensitivity;
     }
 
     public String getName() {
@@ -23,7 +27,11 @@ public class User {
         return type;
     }
 
-    public int getSentitivity() {
-        return sentitivity;
+    public List<Place> getPlaces() {
+        return places;
+    }
+
+    public int getSensitivity() {
+        return sensitivity;
     }
 }
