@@ -10,14 +10,12 @@ import com.argandevteam.team14_app.detail.DetailPresenter;
 
 public class MainActivity extends AppCompatActivity {
 
-    private FragmentManager fm;
-    private DetailFragment detailFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        detailFragment = DetailFragment.newInstance();
+        navigateToDetail();
     }
 
 
@@ -32,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
                     .replace(R.id.container, detailFragment)
                     .commit();
         }
-
         DetailPresenter detailPresenter = new DetailPresenter(detailFragment);
     }
 

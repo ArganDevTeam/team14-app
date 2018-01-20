@@ -26,7 +26,7 @@
         <activity android:name=".LoginActivity"></activity>
 
         <meta-data
-            android:name="com.google.android.geo.AIzaSyA7yXMRkcLTpRaB-wpKZnXSY1aim0Xrbn4"
+            android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyA7yXMRkcLTpRaB-wpKZnXSY1aim0Xrbn4" />
     </application>
 
