@@ -12,8 +12,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.argandevteam.team14_app.R;
+import com.argandevteam.team14_app.data.Detail;
 import com.argandevteam.team14_app.detail.adapter.HotelsAdapter;
 import com.argandevteam.team14_app.detail.adapter.PoisAdapter;
+
+import java.util.Arrays;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,6 +37,9 @@ public class DetailFragment extends Fragment implements DetailContract.View{
     RecyclerView hotelsRV;
     @BindView(R.id.rv_pois)
     RecyclerView poisRV;
+
+    private  HotelsAdapter hotelsAdapter;
+    private PoisAdapter poisAdapter;
 
     public DetailFragment() {
 
@@ -56,15 +62,21 @@ public class DetailFragment extends Fragment implements DetailContract.View{
         return v;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        presenter.start();
+    }
+
     private void initFragment() {
 
-        HotelsAdapter hotelsAdapter = new HotelsAdapter(getContext());
+        hotelsAdapter = new HotelsAdapter(getContext());
         GridLayoutManager hotelsGlm = new GridLayoutManager(getActivity(), 1);
         hotelsRV.setLayoutManager(hotelsGlm);
         hotelsRV.setItemAnimator(new DefaultItemAnimator());
         hotelsRV.setAdapter(hotelsAdapter);
 
-        PoisAdapter poisAdapter = new PoisAdapter(getContext());
+        poisAdapter = new PoisAdapter(getContext());
         GridLayoutManager poisGlm = new GridLayoutManager(getActivity(), 1);
         poisRV.setLayoutManager(poisGlm);
         poisRV.setItemAnimator(new DefaultItemAnimator());
@@ -74,5 +86,11 @@ public class DetailFragment extends Fragment implements DetailContract.View{
     @Override
     public void setPresenter(DetailContract.Presenter presenter) {
         this.presenter = presenter;
+    }
+
+    @Override
+    public void setDetail(Detail detail) {
+        hotelsAdapter.updateList(Arrays.asList(detail.getHotels()));
+        poisAdapter.updateList(Arrays.asList(detail.getPois()));
     }
 }

@@ -2,6 +2,7 @@ package com.argandevteam.team14_app.data.source.remote;
 
 import android.util.Log;
 
+import com.argandevteam.team14_app.data.Detail;
 import com.argandevteam.team14_app.data.User;
 import com.argandevteam.team14_app.data.source.UsersDataSource;
 
@@ -49,6 +50,25 @@ public class UsersRemoteDataSource implements UsersDataSource {
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
+                Log.e(TAG, "onFailure: ERROR WHILE REQUESTING", t);
+            }
+        });
+
+    }
+
+    @Override
+    public void getDetail(final LoadDetailCallback callback) {
+        Call<Detail> call = apiService.getDetail();
+        
+        call.enqueue(new Callback<Detail>() {
+            @Override
+            public void onResponse(Call<Detail> call, Response<Detail> response) {
+                Detail detail = response.body();
+                callback.onDetailCallback(detail);
+            }
+
+            @Override
+            public void onFailure(Call<Detail> call, Throwable t) {
                 Log.e(TAG, "onFailure: ERROR WHILE REQUESTING", t);
             }
         });

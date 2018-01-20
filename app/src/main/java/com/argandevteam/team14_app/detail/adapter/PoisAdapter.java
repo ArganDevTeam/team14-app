@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.argandevteam.team14_app.R;
-import com.argandevteam.team14_app.data.Hotel;
+import com.argandevteam.team14_app.data.Poi;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,16 +25,16 @@ import butterknife.ButterKnife;
 public class PoisAdapter extends RecyclerView.Adapter<PoisAdapter.MyViewHolder> {
 
     private Context context;
-    private List<Hotel> hotels;
+    private List<Poi> pois;
 
     public PoisAdapter(Context context) {
         this.context = context;
-        hotels = new ArrayList<>();
+        pois = new ArrayList<>();
     }
 
-    public void updateList(List<Hotel> list) {
-        hotels.clear();
-        hotels.addAll(list);
+    public void updateList(List<Poi> list) {
+        pois.clear();
+        pois.addAll(list);
         this.notifyDataSetChanged();
     }
 
@@ -46,13 +46,13 @@ public class PoisAdapter extends RecyclerView.Adapter<PoisAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(PoisAdapter.MyViewHolder holder, int position) {
-
+        holder.nameTxt.setText(pois.get(position).getName());
     }
 
 
     @Override
     public int getItemCount() {
-        return hotels.size();
+        return pois.size();
     }
 
 
@@ -61,8 +61,11 @@ public class PoisAdapter extends RecyclerView.Adapter<PoisAdapter.MyViewHolder> 
         @BindView(R.id.txt_name)
         TextView nameTxt;
 
-        @BindView(R.id.txt_price)
-        ImageView priceTxt;
+        @BindView(R.id.img_icon)
+        ImageView iconImg;
+
+        @BindView(R.id.img_poi)
+        ImageView poiImg;
 
 
         public MyViewHolder(View v) {

@@ -1,5 +1,6 @@
 package com.argandevteam.team14_app.data.source;
 
+import com.argandevteam.team14_app.data.Detail;
 import com.argandevteam.team14_app.data.User;
 
 /**
@@ -20,6 +21,21 @@ public class UsersRepository implements UsersDataSource{
             @Override
             public void onUserCallback(User user) {
                 callback.onUserCallback(user);
+            }
+
+            @Override
+            public void onError() {
+                callback.onError();
+            }
+        });
+    }
+
+    @Override
+    public void getDetail(final LoadDetailCallback callback) {
+        remoteDataSource.getDetail(new LoadDetailCallback() {
+            @Override
+            public void onDetailCallback(Detail detail) {
+                callback.onDetailCallback(detail);
             }
 
             @Override
