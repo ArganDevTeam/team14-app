@@ -7,11 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
 import com.argandevteam.team14_app.R;
 import com.argandevteam.team14_app.data.Hotel;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +52,8 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.MyViewHold
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.nameTxt.setText(hotels.get(position).getName());
-        holder.priceTxt.setText(hotels.get(position).getPrice());
+        holder.priceTxt.setText(hotels.get(position).getPrice()+ "€");
+        Glide.with(context).load(hotels.get(position).getImage()).apply(RequestOptions.circleCropTransform()).into(holder.hotelImg);
     }
 
 
@@ -60,6 +64,9 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.MyViewHold
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        @BindView(R.id.img_hotel)
+        ImageView hotelImg;
 
         @BindView(R.id.txt_name)
         TextView nameTxt;

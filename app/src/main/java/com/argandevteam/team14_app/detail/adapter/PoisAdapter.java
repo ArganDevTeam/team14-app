@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.argandevteam.team14_app.R;
 import com.argandevteam.team14_app.data.Poi;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +49,8 @@ public class PoisAdapter extends RecyclerView.Adapter<PoisAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(PoisAdapter.MyViewHolder holder, int position) {
         holder.nameTxt.setText(pois.get(position).getName());
+        Glide.with(context).load(pois.get(position).getImage()).apply(RequestOptions.circleCropTransform()).into(holder.poiImg);
+        Glide.with(context).load(pois.get(position).getIcon()).into(holder.iconImg);
     }
 
 
@@ -73,7 +77,6 @@ public class PoisAdapter extends RecyclerView.Adapter<PoisAdapter.MyViewHolder> 
             ButterKnife.bind(this, v);
             v.setOnClickListener(this);
             Typeface soho = Typeface.createFromAsset(context.getAssets(), context.getResources().getString(R.string.sohofont));
-
             nameTxt.setTypeface(soho);
 
         }

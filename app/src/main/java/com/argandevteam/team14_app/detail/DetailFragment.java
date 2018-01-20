@@ -1,6 +1,7 @@
 package com.argandevteam.team14_app.detail;
 
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -15,6 +16,8 @@ import com.argandevteam.team14_app.R;
 import com.argandevteam.team14_app.data.Detail;
 import com.argandevteam.team14_app.detail.adapter.HotelsAdapter;
 import com.argandevteam.team14_app.detail.adapter.PoisAdapter;
+
+import org.w3c.dom.Text;
 
 import java.util.Arrays;
 
@@ -33,6 +36,10 @@ public class DetailFragment extends Fragment implements DetailContract.View{
 
     @BindView(R.id.txt_city)
     TextView cityTxt;
+    @BindView(R.id.txt_hotel_title)
+    TextView hotelTitleText;
+    @BindView(R.id.txt_pois_title)
+    TextView poisTitleText;
     @BindView(R.id.rv_hotels)
     RecyclerView hotelsRV;
     @BindView(R.id.rv_pois)
@@ -81,6 +88,11 @@ public class DetailFragment extends Fragment implements DetailContract.View{
         poisRV.setLayoutManager(poisGlm);
         poisRV.setItemAnimator(new DefaultItemAnimator());
         poisRV.setAdapter(poisAdapter);
+
+        Typeface soho = Typeface.createFromAsset(getContext().getAssets(), getContext().getResources().getString(R.string.sohofont));
+        cityTxt.setTypeface(soho);
+        hotelTitleText.setTypeface(soho);
+        poisTitleText.setTypeface(soho);
     }
 
     @Override

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="8"
+    android:weightSum="7"
     tools:context="com.argandevteam.team14_app.detail.DetailFragment">
 
 
@@ -18,6 +18,8 @@
             android:id="@+id/txt_city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="City"
+            android:textColor="@color/colorPrimary"
             android:textSize="@dimen/text_32" />
 
     </LinearLayout>
@@ -26,7 +28,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3">
+        android:layout_weight="2">
 
         <fragment
             android:id="@+id/map_detail"
@@ -42,12 +44,15 @@
         android:layout_height="0dp"
         android:layout_weight="2"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/app_padding">
 
         <TextView
+            android:id="@+id/txt_hotel_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hotels"
+            android:textColor="@color/colorPrimary"
             android:textSize="@dimen/text_32" />
 
         <ScrollView
@@ -72,12 +77,15 @@
         android:layout_height="0dp"
         android:layout_weight="2"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/app_padding">
 
         <TextView
+            android:id="@+id/txt_pois_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pois"
+            android:text="Points of interest"
+            android:textColor="@color/colorPrimary"
             android:textSize="@dimen/text_32" />
 
         <ScrollView
