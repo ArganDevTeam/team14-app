@@ -9,17 +9,24 @@ import android.view.ViewGroup;
 
 import com.argandevteam.team14_app.R;
 
+
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DetailFragment extends Fragment {
+public class DetailFragment extends Fragment implements DetailContract.View{
 
+
+    public static final String TAG = "DetailFragment";
+    private DetailContract.Presenter presenter;
 
     public DetailFragment() {
 
 
     }
 
+    public static DetailFragment newInstance(){
+        return new DetailFragment();
+    }
 
 
 
@@ -32,4 +39,8 @@ public class DetailFragment extends Fragment {
         return v;
     }
 
+    @Override
+    public void setPresenter(DetailContract.Presenter presenter) {
+        this.presenter = presenter;
+    }
 }
