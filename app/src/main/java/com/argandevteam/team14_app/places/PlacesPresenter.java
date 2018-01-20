@@ -1,0 +1,17 @@
+package com.argandevteam.team14_app.places;
+
+/**
+ * Created by markc on 20/01/2018.
+ */
+
+public class PlacesPresenter implements PlacesContract.Presenter {
+    @Override
+    public void start() {
+
+    }
+
+    @Override
+    public void stop() {
+
+    }
+}
