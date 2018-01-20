@@ -1,14 +1,14 @@
-package com.argandevteam.team14_app.places;
+package com.argandevteam.team14_app.login;
 
 /**
  * Created by markc on 20/01/2018.
  */
 
-public class PlacesPresenter implements PlacesContract.Presenter {
+public class LoginPresenter implements LoginContract.Presenter {
 
-    PlacesContract.View view;
+    LoginContract.View view;
 
-    public PlacesPresenter(PlacesContract.View view) {
+    public LoginPresenter(LoginContract.View view) {
         this.view = view;
         view.setPresenter(this);
     }
