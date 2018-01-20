@@ -2,8 +2,12 @@ package com.argandevteam.team14_app.data.source.remote;
 
 import android.util.Log;
 
+import com.argandevteam.team14_app.data.Place;
 import com.argandevteam.team14_app.data.User;
 import com.argandevteam.team14_app.data.source.UsersDataSource;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,6 +48,7 @@ public class UsersRemoteDataSource implements UsersDataSource {
             public void onResponse(Call<User> call, Response<User> response) {
                 User user = response.body();
 
+
                 callback.onUserCallback(user);
             }
 
@@ -53,5 +58,26 @@ public class UsersRemoteDataSource implements UsersDataSource {
             }
         });
 
+    }
+
+    @Override
+    public void getPlaces(final LoadPlacesCallback callback) {
+        Call<User> call = apiService.getUser();
+
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                User user = response.body();
+
+                List<Place> places = user.getPlaces();
+
+                callback.onPlacesCallback(places);
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Log.e(TAG, "onFailure: ERROR WHILE REQUESTING", t);
+            }
+        });
     }
 }

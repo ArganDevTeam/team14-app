@@ -5,21 +5,42 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.argandevteam.team14_app.data.source.UsersDataSource;
+import com.argandevteam.team14_app.data.source.UsersRepository;
+import com.argandevteam.team14_app.data.source.remote.UsersRemoteDataSource;
 import com.argandevteam.team14_app.detail.DetailFragment;
 import com.argandevteam.team14_app.detail.DetailPresenter;
+import com.argandevteam.team14_app.places.PlacesFragment;
+import com.argandevteam.team14_app.places.PlacesPresenter;
 
 public class MainActivity extends AppCompatActivity {
-
-    private FragmentManager fm;
-    private DetailFragment detailFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        detailFragment = DetailFragment.newInstance();
+
+        navigateToPlaces();
     }
 
+    private void navigateToPlaces() {
+        PlacesFragment placesFragment = (PlacesFragment) getSupportFragmentManager().findFragmentByTag(PlacesFragment.TAG);
+
+        if (placesFragment == null) {
+            placesFragment = PlacesFragment.newInstance();
+
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container, placesFragment)
+                    .commit();
+        }
+
+        UsersRemoteDataSource usersRemoteDataSource = UsersRemoteDataSource.getInstance();
+
+        UsersRepository usersRepository = new UsersRepository(usersRemoteDataSource);
+
+        PlacesPresenter placesPresenter = new PlacesPresenter(usersRepository, placesFragment);
+    }
 
     public void navigateToDetail() {
         DetailFragment detailFragment = (DetailFragment) getSupportFragmentManager().findFragmentByTag(DetailFragment.TAG);

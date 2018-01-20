@@ -1,14 +1,18 @@
 package com.argandevteam.team14_app.data.source;
 
+import com.argandevteam.team14_app.data.Place;
 import com.argandevteam.team14_app.data.User;
+
+import java.util.List;
 
 /**
  * Created by markc on 20/01/2018.
  */
 
-public class UsersRepository implements UsersDataSource{
+public class UsersRepository implements UsersDataSource {
 
     private UsersDataSource remoteDataSource;
+    private Object places;
 
     public UsersRepository(UsersDataSource remoteDataSource) {
         this.remoteDataSource = remoteDataSource;
@@ -20,6 +24,21 @@ public class UsersRepository implements UsersDataSource{
             @Override
             public void onUserCallback(User user) {
                 callback.onUserCallback(user);
+            }
+
+            @Override
+            public void onError() {
+                callback.onError();
+            }
+        });
+    }
+
+    @Override
+    public void getPlaces(final LoadPlacesCallback callback) {
+        remoteDataSource.getPlaces(new LoadPlacesCallback() {
+            @Override
+            public void onPlacesCallback(List<Place> places) {
+                callback.onPlacesCallback(places);
             }
 
             @Override
