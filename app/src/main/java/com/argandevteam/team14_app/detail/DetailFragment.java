@@ -57,13 +57,14 @@ public class DetailFragment extends Fragment implements DetailContract.View{
     }
 
     private void initFragment() {
+
         HotelsAdapter hotelsAdapter = new HotelsAdapter(getContext());
         GridLayoutManager hotelsGlm = new GridLayoutManager(getActivity(), 1);
         hotelsRV.setLayoutManager(hotelsGlm);
         hotelsRV.setItemAnimator(new DefaultItemAnimator());
         hotelsRV.setAdapter(hotelsAdapter);
 
-        PoisAdapter poisAdapter = new PoisAdapter();
+        PoisAdapter poisAdapter = new PoisAdapter(getContext());
         GridLayoutManager poisGlm = new GridLayoutManager(getActivity(), 1);
         poisRV.setLayoutManager(poisGlm);
         poisRV.setItemAnimator(new DefaultItemAnimator());

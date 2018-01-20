@@ -11,8 +11,10 @@ import android.widget.TextView;
 
 
 import com.argandevteam.team14_app.R;
+import com.argandevteam.team14_app.data.Hotel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 import butterknife.BindView;
@@ -25,14 +27,14 @@ import butterknife.ButterKnife;
 public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.MyViewHolder> {
 
     private Context context;
-    private List<Hotels> hotels;
+    private List<Hotel> hotels;
 
     public HotelsAdapter(Context context) {
         this.context = context;
         hotels = new ArrayList<>();
     }
 
-    public void updateList(List<Hotels> list) {
+    public void updateList(List<Hotel> list) {
         hotels.clear();
         hotels.addAll(list);
         this.notifyDataSetChanged();
@@ -46,7 +48,8 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-
+        holder.nameTxt.setText(hotels.get(position).getName());
+        holder.priceTxt.setText(hotels.get(position).getPrice());
     }
 
 
@@ -76,6 +79,7 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.MyViewHold
 
         @Override
         public void onClick(View view) {
+
         }
     }
 
