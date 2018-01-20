@@ -12,8 +12,10 @@ import com.argandevteam.team14_app.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PlacesFragment extends Fragment {
+public class PlacesFragment extends Fragment implements PlacesContract.View{
 
+
+    private PlacesContract.Presenter presenter;
 
     public PlacesFragment() {
         // Required empty public constructor
@@ -27,4 +29,14 @@ public class PlacesFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_places, container, false);
     }
 
+    @Override
+    public void onDestroy() {
+        presenter.stop();
+        super.onDestroy();
+    }
+
+    @Override
+    public void setPresenter(PlacesContract.Presenter presenter) {
+        this.presenter = presenter;
+    }
 }

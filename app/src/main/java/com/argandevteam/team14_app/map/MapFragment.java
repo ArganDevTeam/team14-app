@@ -1,4 +1,4 @@
-package com.argandevteam.team14_app.prebooking;
+package com.argandevteam.team14_app.map;
 
 
 import android.os.Bundle;
@@ -12,12 +12,12 @@ import com.argandevteam.team14_app.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PreBookingFragment extends Fragment implements PreBookingContract.View{
+public class MapFragment extends Fragment implements MapContract.View{
 
 
-    private PreBookingContract.Presenter presenter;
+    private MapContract.Presenter presenter;
 
-    public PreBookingFragment() {
+    public MapFragment() {
         // Required empty public constructor
     }
 
@@ -26,17 +26,12 @@ public class PreBookingFragment extends Fragment implements PreBookingContract.V
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pre_booking, container, false);
+        return inflater.inflate(R.layout.fragment_map, container, false);
     }
 
-    @Override
-    public void onDestroy() {
-        presenter.stop();
-        super.onDestroy();
-    }
 
     @Override
-    public void setPresenter(PreBookingContract.Presenter presenter) {
+    public void setPresenter(MapContract.Presenter presenter) {
         this.presenter = presenter;
     }
 }

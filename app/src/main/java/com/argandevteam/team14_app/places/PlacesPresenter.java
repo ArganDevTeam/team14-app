@@ -5,6 +5,13 @@ package com.argandevteam.team14_app.places;
  */
 
 public class PlacesPresenter implements PlacesContract.Presenter {
+
+    PlacesContract.View view;
+
+    public PlacesPresenter(PlacesContract.View view) {
+        this.view = view;
+    }
+
     @Override
     public void start() {
 
@@ -12,6 +19,6 @@ public class PlacesPresenter implements PlacesContract.Presenter {
 
     @Override
     public void stop() {
-
+        view = null;
     }
 }

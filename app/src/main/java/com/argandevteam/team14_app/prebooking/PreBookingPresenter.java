@@ -5,6 +5,10 @@ package com.argandevteam.team14_app.prebooking;
  */
 
 public class PreBookingPresenter implements PreBookingContract.Presenter {
+
+    PreBookingContract.View view;
+
+
     @Override
     public void start() {
 
@@ -12,6 +16,6 @@ public class PreBookingPresenter implements PreBookingContract.Presenter {
 
     @Override
     public void stop() {
-
+        this.view = null;
     }
 }
