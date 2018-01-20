@@ -1,5 +1,9 @@
 package com.argandevteam.team14_app.login;
 
+import com.argandevteam.team14_app.data.User;
+import com.argandevteam.team14_app.data.source.UsersDataSource;
+import com.argandevteam.team14_app.data.source.UsersRepository;
+
 /**
  * Created by markc on 20/01/2018.
  */
@@ -7,8 +11,10 @@ package com.argandevteam.team14_app.login;
 public class LoginPresenter implements LoginContract.Presenter {
 
     LoginContract.View view;
+    UsersRepository usersRepository;
 
-    public LoginPresenter(LoginContract.View view) {
+    public LoginPresenter(UsersRepository usersRepository, LoginContract.View view) {
+        this.usersRepository = usersRepository;
         this.view = view;
         view.setPresenter(this);
     }
@@ -21,5 +27,20 @@ public class LoginPresenter implements LoginContract.Presenter {
     @Override
     public void stop() {
         view = null;
+    }
+
+    @Override
+    public void onLoginButtonClicked() {
+        usersRepository.getUser(new UsersDataSource.LoadUserCallback() {
+            @Override
+            public void onUserCallback(User user) {
+                view.navigateToPlaces();
+            }
+
+            @Override
+            public void onError() {
+                view.showError();
+            }
+        });
     }
 }

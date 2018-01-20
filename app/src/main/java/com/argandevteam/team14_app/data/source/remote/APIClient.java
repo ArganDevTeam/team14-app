@@ -1,4 +1,4 @@
-package com.argandevteam.team14_app.data.remote;
+package com.argandevteam.team14_app.data.source.remote;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -12,8 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by markc on 20/01/2018.
  */
 
-public class APIClient {
-
+class APIClient {
 
     private static Retrofit retrofit = null;
 

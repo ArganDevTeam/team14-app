@@ -1,9 +1,13 @@
 package com.argandevteam.team14_app.login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.argandevteam.team14_app.MainActivity;
 import com.argandevteam.team14_app.R;
+import com.argandevteam.team14_app.data.source.UsersRepository;
+import com.argandevteam.team14_app.data.source.remote.UsersRemoteDataSource;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -19,6 +23,17 @@ public class LoginActivity extends AppCompatActivity {
                 .replace(R.id.container, loginFragment)
                 .commit();
 
-        LoginPresenter loginPresenter = new LoginPresenter(loginFragment);
+
+        UsersRemoteDataSource usersRemoteDataSource = UsersRemoteDataSource.getInstance();
+
+        UsersRepository usersRepository = new UsersRepository(usersRemoteDataSource);
+
+        LoginPresenter loginPresenter = new LoginPresenter(usersRepository, loginFragment);
+    }
+
+    public void navigateToMainActivity() {
+        Intent mainActivityIntent = new Intent(this, MainActivity.class);
+        startActivity(mainActivityIntent);
+        finish();
     }
 }
