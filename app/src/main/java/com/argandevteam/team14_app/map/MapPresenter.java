@@ -10,6 +10,7 @@ public class MapPresenter implements MapContract.Presenter {
 
     public MapPresenter(MapContract.View view) {
         this.view = view;
+        view.setPresenter(this);
     }
 
     @Override
