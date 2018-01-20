@@ -81,12 +81,14 @@ public class DetailFragment extends Fragment implements DetailContract.View{
         GridLayoutManager hotelsGlm = new GridLayoutManager(getActivity(), 1);
         hotelsRV.setLayoutManager(hotelsGlm);
         hotelsRV.setItemAnimator(new DefaultItemAnimator());
+        hotelsRV.setNestedScrollingEnabled(false);
         hotelsRV.setAdapter(hotelsAdapter);
 
         poisAdapter = new PoisAdapter(getContext());
         GridLayoutManager poisGlm = new GridLayoutManager(getActivity(), 1);
         poisRV.setLayoutManager(poisGlm);
         poisRV.setItemAnimator(new DefaultItemAnimator());
+        poisRV.setNestedScrollingEnabled(false);
         poisRV.setAdapter(poisAdapter);
 
         Typeface soho = Typeface.createFromAsset(getContext().getAssets(), getContext().getResources().getString(R.string.sohofont));

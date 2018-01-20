@@ -4,104 +4,120 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="7"
     tools:context="com.argandevteam.team14_app.detail.DetailFragment">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center">
-
-        <TextView
-            android:id="@+id/txt_city"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="City"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/text_32" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2">
-
-        <fragment
-            android:id="@+id/map_detail"
-            class="com.google.android.gms.maps.MapFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
-        android:gravity="center"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="@dimen/app_padding">
+        android:weightSum="7">
 
-        <TextView
-            android:id="@+id/txt_hotel_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hotels"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/text_32" />
-
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv_hotels"
+            <TextView
+                android:id="@+id/txt_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="City"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_32" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+
+            <fragment
+                android:id="@+id/map_detail"
+                class="com.google.android.gms.maps.MapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:orientation="vertical">
+
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:clipToPadding="false"
-                android:scrollbars="vertical" />
-        </ScrollView>
+                android:fillViewport="true">
 
 
-    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:orientation="vertical">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="@dimen/app_padding">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/app_padding">
 
-        <TextView
-            android:id="@+id/txt_pois_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Points of interest"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/text_32" />
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true">
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv_pois"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clipToPadding="false"
-                android:scrollbars="vertical" />
-        </ScrollView>
+                        <TextView
+                            android:id="@+id/txt_hotel_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hotels"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/text_32" />
 
 
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/rv_hotels"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clipToPadding="false"
+                            android:nestedScrollingEnabled="true" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/app_padding">
+
+                        <TextView
+                            android:id="@+id/txt_pois_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Points of interest"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/text_32" />
+
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/rv_pois"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clipToPadding="false"
+                            android:nestedScrollingEnabled="true" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
     </LinearLayout>
 
 
