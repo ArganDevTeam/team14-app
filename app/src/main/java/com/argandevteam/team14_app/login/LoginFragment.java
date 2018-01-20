@@ -33,4 +33,8 @@ public class LoginFragment extends Fragment implements LoginContract.View{
     public void setPresenter(LoginContract.Presenter presenter) {
         this.presenter = presenter;
     }
+
+    public static LoginFragment newInstance() {
+        return new LoginFragment();
+    }
 }
