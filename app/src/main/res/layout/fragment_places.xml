@@ -7,15 +7,6 @@
     tools:context="com.argandevteam.team14_app.places.PlacesFragment">
 
     <TextView
-        android:id="@+id/tv_user_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textSize="24sp"
-        android:textColor="@android:color/white"
-        tools:text="¡Bienvenido Marcos!" />
-
-    <TextView
         android:id="@+id/tv_travel_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,7 +14,7 @@
         android:text="Hemos preparado estos destinos para ti"
         android:textColor="@android:color/white"
         android:layout_margin="@dimen/margin_16"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_places"

@@ -16,14 +16,13 @@
         android:layout_marginBottom="50dp"
         android:layout_marginTop="50dp"
         android:src="@drawable/logo" />
-
     <EditText
         android:id="@+id/et_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="marcos"
-        android:hint="Username" />
+        android:hint="Username"
+        android:text="marcos" />
 
     <EditText
         android:id="@+id/et_password"
@@ -31,13 +30,18 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:hint="Password"
-        android:text="contraseña"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:text="contraseña" />
 
     <Button
         android:id="@+id/btn_login"
         android:layout_width="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         android:layout_height="wrap_content"
-        android:text="LOGIN" />
+        android:layout_gravity="center"
+        android:background="@drawable/custom_round_button"
+        android:text="LOGIN BBVA"
+        android:textColor="#FAFAFA" />
 
 </LinearLayout>

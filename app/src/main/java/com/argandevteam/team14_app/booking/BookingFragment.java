@@ -60,7 +60,7 @@ public class BookingFragment extends Fragment implements BookingContract.View {
         ButterKnife.bind(this, view);
         wvBooking.setWebViewClient(new WebViewClient());
         wvBooking.setLayerType(View.LAYER_TYPE_HARDWARE, null);
-        wvBooking.loadUrl("https://www.hotelscombined.com//ProviderRedirect.ashx?key=0.28333815.-263731987.2.EUR.208427970&source=202-0&a_aid=187178&brandID=545088");
+        wvBooking.loadUrl("https://www.booking.com/hotel/it/quirinale.en-gb.html?aid=812878;label=metaskyscan-hotel-80040_lang-en_curr-GBP_clkid-7ddd9b1afeac11e7acbb7f206406bee0;sid=d547c36355985125d2a5b125f23e09c4;checkin=2018-02-21;checkout=2018-02-22;ucfs=1;srpvid=52915cad5d540131;srepoch=1516540253;highlighted_blocks=8004019_93707588_0_1_0;all_sr_blocks=8004019_93707588_0_1_0;bshb=2;room1=A%2CA;hpos=1;hapos=1;dest_type=city;dest_id=-126693;srfid=2a282fdb4e5a95d74f0eb7ef2428af5e5d4cfa18X1;from=searchresults;highlight_room=#hotelTmpl");
         return view;
     }
 
