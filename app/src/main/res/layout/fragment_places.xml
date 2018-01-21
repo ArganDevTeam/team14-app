@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorPrimary"
     tools:context="com.argandevteam.team14_app.places.PlacesFragment">
 
     <TextView
@@ -11,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="24sp"
+        android:textColor="@android:color/white"
         tools:text="¡Bienvenido Marcos!" />
 
     <TextView
@@ -19,7 +21,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Hemos preparado estos destinos para ti"
-        android:textSize="16sp" />
+        android:textColor="@android:color/white"
+        android:layout_margin="@dimen/margin_16"
+        android:textSize="20sp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_places"

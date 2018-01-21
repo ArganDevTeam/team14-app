@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.argandevteam.team14_app.R;
 import com.argandevteam.team14_app.data.Place;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +43,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.ViewHolder
     public void onBindViewHolder(ViewHolder holder, int position) {
         Place place = placesList.get(position);
         holder.tvPlaceName.setText(place.getName());
+        Glide.with(holder.tvPlaceName.getContext()).load(placesList.get(position).getImg()).into(holder.ivPlaceImage);
         holder.city = place.getName();
     }
 
