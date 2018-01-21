@@ -59,6 +59,8 @@ public class DetailFragment extends Fragment implements DetailContract.View, OnM
     MapView map;
     private GoogleMap gmap;
 
+    private static String cityName;
+
     private HotelsAdapter hotelsAdapter;
     private PoisAdapter poisAdapter;
     private MainActivity mainActivity;
@@ -74,7 +76,8 @@ public class DetailFragment extends Fragment implements DetailContract.View, OnM
 
     }
 
-    public static DetailFragment newInstance() {
+    public static DetailFragment newInstance(String city) {
+        cityName = city;
         return new DetailFragment();
     }
 
@@ -129,7 +132,7 @@ public class DetailFragment extends Fragment implements DetailContract.View, OnM
     }
 
     private void setMapPosition() {
-        cityTxt.setText("Madrid");
+        cityTxt.setText(cityName);
         double lat = 40.415363;
         double lon = -3.707398;
         LatLng latLng = new LatLng(lat, lon);
@@ -151,6 +154,7 @@ public class DetailFragment extends Fragment implements DetailContract.View, OnM
 
     @Override
     public void setDetail(Detail detail) {
+
         hotelsAdapter.updateList(Arrays.asList(detail.getHotels()));
         poisAdapter.updateList(Arrays.asList(detail.getPois()));
     }

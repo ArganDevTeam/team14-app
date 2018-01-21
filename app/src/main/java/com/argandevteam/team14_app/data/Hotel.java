@@ -12,21 +12,27 @@ public class Hotel {
     @SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("image")
+    @SerializedName("images")
     @Expose
-    private String image;
+    private String images;
     @SerializedName("price")
     @Expose
     private String price;
-    @SerializedName("latitude")
+    @SerializedName("lat")
     @Expose
     private double latitude;
-    @SerializedName("longitude")
+    @SerializedName("long")
     @Expose
     private double longitude;
     @SerializedName("stars")
     @Expose
     private int stars;
+    @SerializedName("booking_url")
+    @Expose
+    private int bookingUrl;
+    @SerializedName("description")
+    @Expose
+    private int description;
 
 
     public Hotel() {
@@ -37,8 +43,8 @@ public class Hotel {
         return name;
     }
 
-    public String getImage() {
-        return image;
+    public String getImages() {
+        return images;
     }
 
     public String getPrice() {
@@ -57,4 +63,11 @@ public class Hotel {
         return stars;
     }
 
+    public int getBookingUrl() {
+        return bookingUrl;
+    }
+
+    public int getDescription() {
+        return description;
+    }
 }

@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         DetailFragment detailFragment = (DetailFragment) getSupportFragmentManager().findFragmentByTag(DetailFragment.TAG);
 
         if (detailFragment == null) {
-            detailFragment = DetailFragment.newInstance();
+            detailFragment = DetailFragment.newInstance(city);
 
             getSupportFragmentManager()
                     .beginTransaction()
