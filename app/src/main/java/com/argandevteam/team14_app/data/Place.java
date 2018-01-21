@@ -7,10 +7,10 @@ package com.argandevteam.team14_app.data;
 public class Place {
     String name;
     String imageUrl;
-    long lat;
-    long lon;
+    float lat;
+    float lon;
 
-    public Place(String name, String imageUrl, long lat, long lon) {
+    public Place(String name, String imageUrl, float lat, float lon) {
         this.name = name;
         this.imageUrl = imageUrl;
         this.lat = lat;
@@ -25,11 +25,11 @@ public class Place {
         return imageUrl;
     }
 
-    public long getLat() {
+    public float getLat() {
         return lat;
     }
 
-    public long getLon() {
+    public float getLon() {
         return lon;
     }
 }

@@ -1,5 +1,7 @@
 package com.argandevteam.team14_app.data;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 /**
@@ -9,7 +11,9 @@ import java.util.List;
 public class User {
     String name;
     String type;
+    @SerializedName("cities")
     List<Place> places;
+    @SerializedName("sensitivity")
     int sensitivity;
 
     public User(String name, String type, List<Place> places, int sensitivity) {

@@ -31,6 +31,7 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     @Override
     public void onLoginButtonClicked() {
+
         usersRepository.getUser(new UsersDataSource.LoadUserCallback() {
             @Override
             public void onUserCallback(User user) {

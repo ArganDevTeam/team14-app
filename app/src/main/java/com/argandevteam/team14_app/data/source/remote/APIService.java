@@ -11,7 +11,7 @@ import retrofit2.http.GET;
  */
 
 public interface APIService {
-    @GET("5a634f3a2e00003a0911d885")
+    @GET("5a6460c22b0000fc04f41452")
     Call<User> getUser();
 
     @GET("5a63520d2e0000420911d887")
