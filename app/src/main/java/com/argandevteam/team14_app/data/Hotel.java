@@ -29,10 +29,10 @@ public class Hotel {
     private int stars;
     @SerializedName("booking_url")
     @Expose
-    private int bookingUrl;
+    private String bookingUrl;
     @SerializedName("description")
     @Expose
-    private int description;
+    private String description;
 
 
     public Hotel() {
@@ -63,11 +63,11 @@ public class Hotel {
         return stars;
     }
 
-    public int getBookingUrl() {
+    public String getBookingUrl() {
         return bookingUrl;
     }
 
-    public int getDescription() {
+    public String getDescription() {
         return description;
     }
 }
