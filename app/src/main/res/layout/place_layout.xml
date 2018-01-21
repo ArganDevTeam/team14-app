@@ -11,8 +11,7 @@
     <ImageView
         android:id="@+id/iv_place_image"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="#ee803e3e" />
+        android:layout_height="180dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
