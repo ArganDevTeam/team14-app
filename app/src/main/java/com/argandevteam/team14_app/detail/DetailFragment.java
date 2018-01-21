@@ -79,13 +79,6 @@ public class DetailFragment extends Fragment implements DetailContract.View, OnM
         View v = inflater.inflate(R.layout.fragment_detail, container, false);
         ButterKnife.bind(this, v);
         map.onCreate(savedInstanceState);
-        map.onResume();
-        try{
-            MapsInitializer.initialize(getContext());
-        }catch (Exception e){
-
-        }
-        map.getMapAsync(this);
         initFragment();
         return v;
     }
@@ -97,6 +90,13 @@ public class DetailFragment extends Fragment implements DetailContract.View, OnM
     }
 
     private void initFragment() {
+        map.onResume();
+        try{
+            MapsInitializer.initialize(getContext());
+        }catch (Exception e){
+
+        }
+        map.getMapAsync(this);
 
         hotelsAdapter = new HotelsAdapter(getContext());
         GridLayoutManager hotelsGlm = new GridLayoutManager(getActivity(), 1);

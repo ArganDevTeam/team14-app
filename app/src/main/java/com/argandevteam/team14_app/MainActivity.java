@@ -7,6 +7,8 @@ import com.argandevteam.team14_app.data.source.UsersRepository;
 import com.argandevteam.team14_app.data.source.remote.UsersRemoteDataSource;
 import com.argandevteam.team14_app.detail.DetailFragment;
 import com.argandevteam.team14_app.detail.DetailPresenter;
+import com.argandevteam.team14_app.map.MapFragment;
+import com.argandevteam.team14_app.map.MapPresenter;
 import com.argandevteam.team14_app.places.PlacesFragment;
 import com.argandevteam.team14_app.places.PlacesPresenter;
 
@@ -57,6 +59,21 @@ public class MainActivity extends AppCompatActivity {
         new DetailPresenter(usersRepository, detailFragment);
     }
 
+
+    private void navigateToMap() {
+        MapFragment mapFragment = (MapFragment) getSupportFragmentManager().findFragmentByTag(MapFragment.TAG);
+
+        if (mapFragment == null) {
+            mapFragment = MapFragment.newInstance();
+
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container, mapFragment)
+                    .commit();
+        }
+
+        MapPresenter mapPresenter = new MapPresenter(mapFragment);
+    }
 
 
 }

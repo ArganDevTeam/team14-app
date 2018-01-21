@@ -17,10 +17,12 @@ public class Poi {
     @SerializedName("subcategory")
     @Expose
     private String subcatecory;
-    @SerializedName("icon")
+    @SerializedName("latitude")
     @Expose
-    private String icon;
-
+    private double latitude;
+    @SerializedName("longitude")
+    @Expose
+    private double longitude;
 
     public Poi() {
     }
@@ -37,7 +39,11 @@ public class Poi {
         return subcatecory;
     }
 
-    public String getIcon() {
-        return icon;
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
     }
 }
