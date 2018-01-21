@@ -17,10 +17,10 @@ public class Poi {
     @SerializedName("subcategory")
     @Expose
     private String subcatecory;
-    @SerializedName("latitude")
+    @SerializedName("lat")
     @Expose
     private double latitude;
-    @SerializedName("longitude")
+    @SerializedName("long")
     @Expose
     private double longitude;
 
