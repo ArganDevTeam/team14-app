@@ -56,8 +56,8 @@ public class UsersRepository implements UsersDataSource {
     }
 
     @Override
-    public void getDetail(final LoadDetailCallback callback) {
-        remoteDataSource.getDetail(new LoadDetailCallback() {
+    public void getDetail(String city, final LoadDetailCallback callback) {
+        remoteDataSource.getDetail(city, new LoadDetailCallback() {
             @Override
             public void onDetailCallback(Detail detail) {
                 MyMapMarkers.getInstance().setHotelList(Arrays.asList(detail.getHotels()));

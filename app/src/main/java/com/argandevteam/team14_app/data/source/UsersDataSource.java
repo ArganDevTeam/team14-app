@@ -16,7 +16,7 @@ public interface UsersDataSource {
 
     void getPlaces(String userName, LoadPlacesCallback callback);
 
-    void getDetail(LoadDetailCallback callback);
+    void getDetail(String city, LoadDetailCallback callback);
 
     interface LoadUserCallback {
         void onUserCallback(User user);

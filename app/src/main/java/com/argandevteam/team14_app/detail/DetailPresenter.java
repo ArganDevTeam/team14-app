@@ -14,10 +14,12 @@ import java.util.Arrays;
 public class DetailPresenter implements DetailContract.Presenter {
 
 
+    private final String city;
     private DetailContract.View view;
     UsersRepository usersRepository;
 
-    public DetailPresenter(UsersRepository usersRepository, DetailContract.View view) {
+    public DetailPresenter(String city, UsersRepository usersRepository, DetailContract.View view) {
+        this.city = city;
         this.view = view;
         this.usersRepository = usersRepository;
         view.setPresenter(this);
@@ -25,17 +27,17 @@ public class DetailPresenter implements DetailContract.Presenter {
 
     @Override
     public void start() {
-//        usersRepository.getDetail(new UsersDataSource.LoadDetailCallback() {
-//            @Override
-//            public void onDetailCallback(Detail detail) {
-//                view.setDetail(detail);
-//            }
-//
-//            @Override
-//            public void onError() {
-//
-//            }
-//        });
+        usersRepository.getDetail(city, new UsersDataSource.LoadDetailCallback() {
+            @Override
+            public void onDetailCallback(Detail detail) {
+                view.setDetail(detail);
+            }
+
+            @Override
+            public void onError() {
+
+            }
+        });
     }
 
     @Override

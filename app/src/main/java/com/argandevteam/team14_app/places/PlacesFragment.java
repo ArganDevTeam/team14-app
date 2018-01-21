@@ -35,8 +35,8 @@ public class PlacesFragment extends Fragment implements PlacesContract.View{
     PlacesAdapter.ItemClickListener itemClickListener = new PlacesAdapter.ItemClickListener() {
 
         @Override
-        public void onClick(View view) {
-            mainActivity.navigateToDetail();
+        public void onClick(View view, String city) {
+            mainActivity.navigateToDetail(city);
         }
     };
 

@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         PlacesPresenter placesPresenter = new PlacesPresenter(userName, usersRepository, placesFragment);
     }
 
-    public void navigateToDetail() {
+    public void navigateToDetail(String city) {
         DetailFragment detailFragment = (DetailFragment) getSupportFragmentManager().findFragmentByTag(DetailFragment.TAG);
 
         if (detailFragment == null) {
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         UsersRepository usersRepository = new UsersRepository(usersRemoteDataSource);
 
-        new DetailPresenter(usersRepository, detailFragment);
+        new DetailPresenter(city, usersRepository, detailFragment);
     }
 
     public void navigateToMap(LatLng latLng) {

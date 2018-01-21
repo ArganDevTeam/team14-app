@@ -41,7 +41,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.ViewHolder
     public void onBindViewHolder(ViewHolder holder, int position) {
         Place place = placesList.get(position);
         holder.tvPlaceName.setText(place.getName());
-
+        holder.city = place.getName();
     }
 
     @Override
@@ -54,12 +54,14 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.ViewHolder
     }
 
     public interface ItemClickListener {
-        void onClick(View view);
+        void onClick(View view, String city);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private final ItemClickListener itemClickListener;
+
+        private String city;
 
         @BindView(R.id.iv_place_image)
         ImageView ivPlaceImage;
@@ -76,7 +78,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.ViewHolder
 
         @Override
         public void onClick(View view) {
-            itemClickListener.onClick(view);
+            itemClickListener.onClick(view, city);
         }
     }
 }

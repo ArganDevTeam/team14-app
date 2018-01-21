@@ -61,8 +61,8 @@ public class UsersRemoteDataSource implements UsersDataSource {
     }
 
     @Override
-    public void getDetail(final LoadDetailCallback callback) {
-        Call<Detail> call = apiService.getDetail();
+    public void getDetail(String city, final LoadDetailCallback callback) {
+        Call<Detail> call = apiService.getDetail(city);
 
         call.enqueue(new Callback<Detail>() {
             @Override
