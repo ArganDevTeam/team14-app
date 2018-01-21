@@ -64,7 +64,7 @@ public class DetailFragment extends Fragment implements DetailContract.View, OnM
     private MainActivity mainActivity;
     private HotelsAdapter.ItemClickListener itemClickListener = new HotelsAdapter.ItemClickListener() {
         @Override
-        public void onClick(View view) {
+        public void onClick(View view, int position) {
             mainActivity.navigateToPreBooking();
         }
     };

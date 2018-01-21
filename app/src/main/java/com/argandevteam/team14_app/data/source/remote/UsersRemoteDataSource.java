@@ -76,7 +76,6 @@ public class UsersRemoteDataSource implements UsersDataSource {
                 Log.e(TAG, "onFailure: ERROR WHILE REQUESTING", t);
             }
         });
-
     }
 
     @Override

@@ -18,6 +18,6 @@ public interface APIService {
     @GET("user/{userName}")
     Call<User> getUser(@Path("userName") String userName);
 
-    @GET("search/{city}")
+    @GET("search/{city}/1")
     Call<Detail> getDetail(@Path("city") String city);
 }

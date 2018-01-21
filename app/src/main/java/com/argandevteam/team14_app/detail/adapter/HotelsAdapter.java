@@ -50,6 +50,7 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
+        holder.position = position;
         holder.nameTxt.setText(hotels.get(position).getName());
         holder.priceTxt.setText(hotels.get(position).getPrice() + "€");
         Glide.with(context).load(hotels.get(position).getImage()).apply(RequestOptions.circleCropTransform()).into(holder.hotelImg);
@@ -62,7 +63,7 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.MyViewHold
     }
 
     public interface ItemClickListener {
-        void onClick(View view);
+        void onClick(View view, int position);
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -76,6 +77,7 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.MyViewHold
 
         @BindView(R.id.txt_price)
         TextView priceTxt;
+        public int position;
 
 
         public MyViewHolder(View v, ItemClickListener itemClickListener) {
@@ -90,7 +92,7 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.MyViewHold
 
         @Override
         public void onClick(View view) {
-            itemClickListener.onClick(view);
+            itemClickListener.onClick(view, position);
         }
     }
 
