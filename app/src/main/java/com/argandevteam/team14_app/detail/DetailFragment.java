@@ -138,7 +138,7 @@ public class DetailFragment extends Fragment implements DetailContract.View, OnM
         gmap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng latLng) {
-
+                ((MainActivity)getActivity()).navigateToMap(latLng);
             }
         });
         gmap.getUiSettings().setScrollGesturesEnabled(false);

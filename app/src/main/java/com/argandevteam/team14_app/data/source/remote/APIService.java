@@ -14,7 +14,7 @@ public interface APIService {
     @GET("5a6460c22b0000fc04f41452")
     Call<User> getUser();
 
-    @GET("5a646b2b2b0000cf05f41460")
+    @GET("5a64786c2b00003107f41474")
     Call<Detail> getDetail();
 
 }
