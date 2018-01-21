@@ -128,14 +128,11 @@ public class DetailFragment extends Fragment implements DetailContract.View, OnM
         cityTxt.setTypeface(soho);
         hotelTitleText.setTypeface(soho);
         poisTitleText.setTypeface(soho);
-
+        cityTxt.setText(cityName);
     }
 
-    private void setMapPosition() {
-        cityTxt.setText(cityName);
-        double lat = 40.415363;
-        double lon = -3.707398;
-        LatLng latLng = new LatLng(lat, lon);
+    private void setMapPosition(Detail detail) {
+        LatLng latLng = new LatLng(41.89193, 12.51133);
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 10);
         gmap.animateCamera(cameraUpdate);
         gmap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
@@ -154,7 +151,7 @@ public class DetailFragment extends Fragment implements DetailContract.View, OnM
 
     @Override
     public void setDetail(Detail detail) {
-
+        setMapPosition(detail);
         hotelsAdapter.updateList(Arrays.asList(detail.getHotels()));
         poisAdapter.updateList(Arrays.asList(detail.getPois()));
     }
@@ -162,6 +159,5 @@ public class DetailFragment extends Fragment implements DetailContract.View, OnM
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.gmap = googleMap;
-        setMapPosition();
     }
 }

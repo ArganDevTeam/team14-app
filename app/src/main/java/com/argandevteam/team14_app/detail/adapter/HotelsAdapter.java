@@ -53,7 +53,7 @@ public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.MyViewHold
         holder.position = position;
         holder.nameTxt.setText(hotels.get(position).getName());
         holder.priceTxt.setText(hotels.get(position).getPrice() + "€");
-        Glide.with(context).load(hotels.get(position).getImage()).apply(RequestOptions.circleCropTransform()).into(holder.hotelImg);
+        Glide.with(context).load(hotels.get(position).getImages()).apply(RequestOptions.circleCropTransform()).into(holder.hotelImg);
     }
 
 
