@@ -20,8 +20,4 @@ public interface APIService {
 
     @GET("5a64786c2b00003107f41474")
     Call<Detail> getDetail();
-
-
-    //search/madrid/1
-
 }
