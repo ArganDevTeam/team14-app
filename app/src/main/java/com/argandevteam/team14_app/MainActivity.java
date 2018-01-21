@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         navigateToDetail();
     }
 
-    private void navigateToPlaces() {
+    private void navigateToPlaces(String userName) {
         PlacesFragment placesFragment = (PlacesFragment) getSupportFragmentManager().findFragmentByTag(PlacesFragment.TAG);
 
         if (placesFragment == null) {
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
         UsersRepository usersRepository = new UsersRepository(usersRemoteDataSource);
 
-        PlacesPresenter placesPresenter = new PlacesPresenter(usersRepository, placesFragment);
+        PlacesPresenter placesPresenter = new PlacesPresenter(userName, usersRepository, placesFragment);
     }
 
     public void navigateToDetail() {

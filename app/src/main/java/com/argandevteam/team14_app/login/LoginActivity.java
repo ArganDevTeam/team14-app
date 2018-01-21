@@ -31,8 +31,9 @@ public class LoginActivity extends AppCompatActivity {
         LoginPresenter loginPresenter = new LoginPresenter(usersRepository, loginFragment);
     }
 
-    public void navigateToMainActivity() {
+    public void navigateToMainActivity(String userName) {
         Intent mainActivityIntent = new Intent(this, MainActivity.class);
+        mainActivityIntent.putExtra("userName", userName);
         startActivity(mainActivityIntent);
         finish();
     }

@@ -5,6 +5,7 @@ import com.argandevteam.team14_app.data.User;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 
@@ -13,6 +14,7 @@ import retrofit2.http.POST;
  */
 
 public interface APIService {
+    @FormUrlEncoded
     @POST("user")
     Call<User> postUser(@Field("user_name") String userName);
 

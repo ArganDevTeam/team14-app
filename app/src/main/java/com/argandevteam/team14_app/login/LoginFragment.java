@@ -6,10 +6,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.argandevteam.team14_app.R;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -21,6 +23,8 @@ public class LoginFragment extends Fragment implements LoginContract.View {
 
     private LoginContract.Presenter presenter;
     private LoginActivity loginActivity;
+    @BindView(R.id.et_username)
+    EditText etUserName;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -45,7 +49,8 @@ public class LoginFragment extends Fragment implements LoginContract.View {
 
     @OnClick(R.id.btn_login)
     void onLoginButtonClicked(View view) {
-        presenter.onLoginButtonClicked();
+        String userName = etUserName.getText().toString();
+        presenter.onLoginButtonClicked(userName);
     }
 
     @Override
@@ -54,8 +59,8 @@ public class LoginFragment extends Fragment implements LoginContract.View {
     }
 
     @Override
-    public void navigateToPlaces() {
-        loginActivity.navigateToMainActivity();
+    public void navigateToPlaces(String username) {
+        loginActivity.navigateToMainActivity(username);
     }
 
     @Override

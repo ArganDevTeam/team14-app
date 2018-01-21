@@ -1,6 +1,7 @@
 package com.argandevteam.team14_app.data.source;
 
 import com.argandevteam.team14_app.data.Detail;
+import com.argandevteam.team14_app.data.MyMapMarkers;
 import com.argandevteam.team14_app.data.Place;
 import com.argandevteam.team14_app.data.User;
 

@@ -25,17 +25,17 @@ public class DetailPresenter implements DetailContract.Presenter {
 
     @Override
     public void start() {
-        usersRepository.getDetail(new UsersDataSource.LoadDetailCallback() {
-            @Override
-            public void onDetailCallback(Detail detail) {
-                view.setDetail(detail);
-            }
-
-            @Override
-            public void onError() {
-
-            }
-        });
+//        usersRepository.getDetail(new UsersDataSource.LoadDetailCallback() {
+//            @Override
+//            public void onDetailCallback(Detail detail) {
+//                view.setDetail(detail);
+//            }
+//
+//            @Override
+//            public void onError() {
+//
+//            }
+//        });
     }
 
     @Override

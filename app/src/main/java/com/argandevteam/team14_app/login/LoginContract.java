@@ -10,13 +10,13 @@ import com.argandevteam.team14_app.BaseView;
 public interface LoginContract {
     interface View extends BaseView<Presenter> {
 
-        void navigateToPlaces();
+        void navigateToPlaces(String username);
 
         void showError();
     }
 
     interface Presenter extends BasePresenter {
 
-        void onLoginButtonClicked();
+        void onLoginButtonClicked(String userName);
     }
 }
