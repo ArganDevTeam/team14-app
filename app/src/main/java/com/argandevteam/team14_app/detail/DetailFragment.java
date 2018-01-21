@@ -5,19 +5,18 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.argandevteam.team14_app.MainActivity;
 import com.argandevteam.team14_app.R;
 import com.argandevteam.team14_app.data.Detail;
 import com.argandevteam.team14_app.detail.adapter.HotelsAdapter;
 import com.argandevteam.team14_app.detail.adapter.PoisAdapter;
-
-import org.w3c.dom.Text;
 
 import java.util.Arrays;
 
@@ -28,12 +27,10 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DetailFragment extends Fragment implements DetailContract.View{
+public class DetailFragment extends Fragment implements DetailContract.View {
 
 
     public static final String TAG = "DetailFragment";
-    private DetailContract.Presenter presenter;
-
     @BindView(R.id.txt_city)
     TextView cityTxt;
     @BindView(R.id.txt_hotel_title)
@@ -44,27 +41,34 @@ public class DetailFragment extends Fragment implements DetailContract.View{
     RecyclerView hotelsRV;
     @BindView(R.id.rv_pois)
     RecyclerView poisRV;
-
-    private  HotelsAdapter hotelsAdapter;
+    private DetailContract.Presenter presenter;
+    private HotelsAdapter hotelsAdapter;
     private PoisAdapter poisAdapter;
+    private MainActivity mainActivity;
+    private HotelsAdapter.ItemClickListener itemClickListener = new HotelsAdapter.ItemClickListener() {
+        @Override
+        public void onClick(View view) {
+            mainActivity.navigateToPreBooking();
+        }
+    };
 
     public DetailFragment() {
 
 
     }
 
-    public static DetailFragment newInstance(){
+    public static DetailFragment newInstance() {
         return new DetailFragment();
     }
-
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v =  inflater.inflate(R.layout.fragment_detail, container, false);
+        View v = inflater.inflate(R.layout.fragment_detail, container, false);
         ButterKnife.bind(this, v);
+        mainActivity = (MainActivity) getActivity();
         initFragment();
         return v;
     }
@@ -77,16 +81,16 @@ public class DetailFragment extends Fragment implements DetailContract.View{
 
     private void initFragment() {
 
-        hotelsAdapter = new HotelsAdapter(getContext());
-        GridLayoutManager hotelsGlm = new GridLayoutManager(getActivity(), 1);
-        hotelsRV.setLayoutManager(hotelsGlm);
+        hotelsAdapter = new HotelsAdapter(getContext(), itemClickListener);
+        LinearLayoutManager hotelsLayoutManager = new LinearLayoutManager(getActivity());
+        hotelsRV.setLayoutManager(hotelsLayoutManager);
         hotelsRV.setItemAnimator(new DefaultItemAnimator());
         hotelsRV.setNestedScrollingEnabled(false);
         hotelsRV.setAdapter(hotelsAdapter);
 
         poisAdapter = new PoisAdapter(getContext());
-        GridLayoutManager poisGlm = new GridLayoutManager(getActivity(), 1);
-        poisRV.setLayoutManager(poisGlm);
+        LinearLayoutManager poisLayoutManager = new LinearLayoutManager(getActivity());
+        poisRV.setLayoutManager(poisLayoutManager);
         poisRV.setItemAnimator(new DefaultItemAnimator());
         poisRV.setNestedScrollingEnabled(false);
         poisRV.setAdapter(poisAdapter);

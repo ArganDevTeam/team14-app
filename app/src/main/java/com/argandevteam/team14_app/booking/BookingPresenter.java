@@ -1,7 +1,5 @@
 package com.argandevteam.team14_app.booking;
 
-import com.argandevteam.team14_app.booking.BookingContract.Presenter;
-
 /**
  * Created by markc on 21/01/2018.
  */
@@ -13,6 +11,7 @@ public class BookingPresenter implements BookingContract.Presenter {
 
     public BookingPresenter(BookingContract.View view) {
         this.view = view;
+        view.setPresenter(this);
     }
 
     @Override

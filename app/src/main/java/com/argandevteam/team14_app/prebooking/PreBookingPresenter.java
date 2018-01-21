@@ -8,6 +8,11 @@ public class PreBookingPresenter implements PreBookingContract.Presenter {
 
     PreBookingContract.View view;
 
+    public PreBookingPresenter(PreBookingContract.View view) {
+        this.view = view;
+        view.setPresenter(this);
+    }
+
 
     @Override
     public void start() {
