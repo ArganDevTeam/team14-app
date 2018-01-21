@@ -5,13 +5,14 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.argandevteam.team14_app.MainActivity;
 import com.argandevteam.team14_app.R;
 import com.argandevteam.team14_app.data.Detail;
 import com.argandevteam.team14_app.detail.adapter.HotelsAdapter;
@@ -60,7 +61,13 @@ public class DetailFragment extends Fragment implements DetailContract.View, OnM
 
     private HotelsAdapter hotelsAdapter;
     private PoisAdapter poisAdapter;
-
+    private MainActivity mainActivity;
+    private HotelsAdapter.ItemClickListener itemClickListener = new HotelsAdapter.ItemClickListener() {
+        @Override
+        public void onClick(View view) {
+            mainActivity.navigateToPreBooking();
+        }
+    };
 
     public DetailFragment() {
 
@@ -72,12 +79,14 @@ public class DetailFragment extends Fragment implements DetailContract.View, OnM
     }
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_detail, container, false);
         ButterKnife.bind(this, v);
+        mainActivity = (MainActivity) getActivity();
         map.onCreate(savedInstanceState);
         initFragment();
         return v;
@@ -98,16 +107,16 @@ public class DetailFragment extends Fragment implements DetailContract.View, OnM
         }
         map.getMapAsync(this);
 
-        hotelsAdapter = new HotelsAdapter(getContext());
-        GridLayoutManager hotelsGlm = new GridLayoutManager(getActivity(), 1);
-        hotelsRV.setLayoutManager(hotelsGlm);
+        hotelsAdapter = new HotelsAdapter(getContext(), itemClickListener);
+        LinearLayoutManager hotelsLayoutManager = new LinearLayoutManager(getActivity());
+        hotelsRV.setLayoutManager(hotelsLayoutManager);
         hotelsRV.setItemAnimator(new DefaultItemAnimator());
         hotelsRV.setNestedScrollingEnabled(false);
         hotelsRV.setAdapter(hotelsAdapter);
 
         poisAdapter = new PoisAdapter(getContext());
-        GridLayoutManager poisGlm = new GridLayoutManager(getActivity(), 1);
-        poisRV.setLayoutManager(poisGlm);
+        LinearLayoutManager poisLayoutManager = new LinearLayoutManager(getActivity());
+        poisRV.setLayoutManager(poisLayoutManager);
         poisRV.setItemAnimator(new DefaultItemAnimator());
         poisRV.setNestedScrollingEnabled(false);
         poisRV.setAdapter(poisAdapter);

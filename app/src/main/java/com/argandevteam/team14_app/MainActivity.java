@@ -1,8 +1,10 @@
 package com.argandevteam.team14_app;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
+import com.argandevteam.team14_app.booking.BookingFragment;
+import com.argandevteam.team14_app.booking.BookingPresenter;
 import com.argandevteam.team14_app.data.source.UsersRepository;
 import com.argandevteam.team14_app.data.source.remote.UsersRemoteDataSource;
 import com.argandevteam.team14_app.detail.DetailFragment;
@@ -11,6 +13,8 @@ import com.argandevteam.team14_app.map.MapFragment;
 import com.argandevteam.team14_app.map.MapPresenter;
 import com.argandevteam.team14_app.places.PlacesFragment;
 import com.argandevteam.team14_app.places.PlacesPresenter;
+import com.argandevteam.team14_app.prebooking.PreBookingFragment;
+import com.argandevteam.team14_app.prebooking.PreBookingPresenter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.container, detailFragment)
+                    .addToBackStack(null)
                     .commit();
         }
         UsersRemoteDataSource usersRemoteDataSource = UsersRemoteDataSource.getInstance();
@@ -58,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
 
         new DetailPresenter(usersRepository, detailFragment);
     }
-
 
     private void navigateToMap() {
         MapFragment mapFragment = (MapFragment) getSupportFragmentManager().findFragmentByTag(MapFragment.TAG);
@@ -75,5 +79,37 @@ public class MainActivity extends AppCompatActivity {
         MapPresenter mapPresenter = new MapPresenter(mapFragment);
     }
 
+    public void navigateToBooking() {
+        BookingFragment bookingFragment = (BookingFragment) getSupportFragmentManager().findFragmentByTag(BookingFragment.TAG);
+        if (bookingFragment == null) {
+            bookingFragment = BookingFragment.newInstance("http://www.booking.com");
 
+
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container, bookingFragment)
+                    .addToBackStack(null)
+                    .commit();
+
+        }
+
+        new BookingPresenter(bookingFragment);
+
+    }
+
+    public void navigateToPreBooking() {
+        PreBookingFragment preBookingFragment = (PreBookingFragment) getSupportFragmentManager().findFragmentByTag(PreBookingFragment.TAG);
+        if (preBookingFragment == null) {
+            preBookingFragment = PreBookingFragment.newInstance("http://www.booking.com");
+
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container, preBookingFragment)
+                    .addToBackStack(null)
+                    .commit();
+
+        }
+
+        new PreBookingPresenter(preBookingFragment);
+    }
 }

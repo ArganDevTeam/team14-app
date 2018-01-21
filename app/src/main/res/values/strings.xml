@@ -5,4 +5,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="num_guests_array">
+        <item>1 persona</item>
+        <item>2 personas</item>
+        <item>3 personas</item>
+        <item>Familia</item>
+    </string-array>
 </resources>
