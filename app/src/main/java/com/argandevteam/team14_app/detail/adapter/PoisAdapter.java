@@ -50,7 +50,6 @@ public class PoisAdapter extends RecyclerView.Adapter<PoisAdapter.MyViewHolder> 
     public void onBindViewHolder(PoisAdapter.MyViewHolder holder, int position) {
         holder.nameTxt.setText(pois.get(position).getName());
         Glide.with(context).load(pois.get(position).getImage()).apply(RequestOptions.circleCropTransform()).into(holder.poiImg);
-        Glide.with(context).load(pois.get(position).getIcon()).into(holder.iconImg);
     }
 
 
@@ -64,9 +63,6 @@ public class PoisAdapter extends RecyclerView.Adapter<PoisAdapter.MyViewHolder> 
 
         @BindView(R.id.txt_name)
         TextView nameTxt;
-
-        @BindView(R.id.img_icon)
-        ImageView iconImg;
 
         @BindView(R.id.img_poi)
         ImageView poiImg;
