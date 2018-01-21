@@ -17,7 +17,7 @@ class APIClient {
     private static Retrofit retrofit = null;
 
     static Retrofit getClient() {
-        String baseUrl = "http://www.mocky.io/v2/";
+        String baseUrl = "http://ec2-34-240-4-211.eu-west-1.compute.amazonaws.com:3000/";
 
         if (retrofit == null) {
 

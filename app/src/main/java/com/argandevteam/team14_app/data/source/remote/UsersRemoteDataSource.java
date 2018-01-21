@@ -41,8 +41,8 @@ public class UsersRemoteDataSource implements UsersDataSource {
     }
 
     @Override
-    public void getUser(final LoadUserCallback callback) {
-        Call<User> call = apiService.getUser();
+    public void postUser(String userName, final LoadUserCallback callback) {
+        Call<User> call = apiService.postUser(userName);
 
         call.enqueue(new Callback<User>() {
             @Override
@@ -80,8 +80,8 @@ public class UsersRemoteDataSource implements UsersDataSource {
     }
 
     @Override
-    public void getPlaces(final LoadPlacesCallback callback) {
-        Call<User> call = apiService.getUser();
+    public void getPlaces(String userName, final LoadPlacesCallback callback) {
+        Call<User> call = apiService.postUser(userName);
 
         call.enqueue(new Callback<User>() {
             @Override
