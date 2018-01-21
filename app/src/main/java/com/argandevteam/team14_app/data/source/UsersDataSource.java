@@ -12,7 +12,7 @@ import java.util.List;
 
 public interface UsersDataSource {
 
-    void postUser(String userName, LoadUserCallback callback);
+    void getUser(String userName, LoadUserCallback callback);
 
     void getPlaces(String userName, LoadPlacesCallback callback);
 

@@ -26,8 +26,8 @@ public class UsersRepository implements UsersDataSource {
     }
 
     @Override
-    public void postUser(String userName, final LoadUserCallback callback) {
-        remoteDataSource.postUser(userName, new LoadUserCallback() {
+    public void getUser(String userName, final LoadUserCallback callback) {
+        remoteDataSource.getUser(userName, new LoadUserCallback() {
             @Override
             public void onUserCallback(User user) {
                 callback.onUserCallback(user);

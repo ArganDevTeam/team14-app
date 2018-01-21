@@ -8,15 +8,15 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 /**
  * Created by markc on 20/01/2018.
  */
 
 public interface APIService {
-    @FormUrlEncoded
-    @POST("user")
-    Call<User> postUser(@Field("user_name") String userName);
+    @GET("user/{userName}")
+    Call<User> getUser(@Path("userName") String userName);
 
     @GET("5a64786c2b00003107f41474")
     Call<Detail> getDetail();

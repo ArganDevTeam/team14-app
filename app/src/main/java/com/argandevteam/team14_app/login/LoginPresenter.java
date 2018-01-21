@@ -31,8 +31,7 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     @Override
     public void onLoginButtonClicked(final String userName) {
-
-        usersRepository.postUser(userName, new UsersDataSource.LoadUserCallback() {
+        usersRepository.getUser(userName, new UsersDataSource.LoadUserCallback() {
             @Override
             public void onUserCallback(User user) {
                 view.navigateToPlaces(userName);
