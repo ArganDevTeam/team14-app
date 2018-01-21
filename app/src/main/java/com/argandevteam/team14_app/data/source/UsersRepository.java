@@ -1,9 +1,11 @@
 package com.argandevteam.team14_app.data.source;
 
 import com.argandevteam.team14_app.data.Detail;
+import com.argandevteam.team14_app.data.MyMapMarkers;
 import com.argandevteam.team14_app.data.Place;
 import com.argandevteam.team14_app.data.User;
 
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -21,8 +23,8 @@ public class UsersRepository implements UsersDataSource {
     }
 
     @Override
-    public void getUser(final LoadUserCallback callback) {
-        remoteDataSource.getUser(new LoadUserCallback() {
+    public void postUser(String userName, final LoadUserCallback callback) {
+        remoteDataSource.postUser(userName, new LoadUserCallback() {
             @Override
             public void onUserCallback(User user) {
                 callback.onUserCallback(user);
@@ -36,8 +38,8 @@ public class UsersRepository implements UsersDataSource {
     }
 
     @Override
-    public void getPlaces(final LoadPlacesCallback callback) {
-        remoteDataSource.getPlaces(new LoadPlacesCallback() {
+    public void getPlaces(String userName, final LoadPlacesCallback callback) {
+        remoteDataSource.getPlaces(userName, new LoadPlacesCallback() {
             @Override
             public void onPlacesCallback(List<Place> places) {
                 callback.onPlacesCallback(places);
@@ -55,6 +57,8 @@ public class UsersRepository implements UsersDataSource {
         remoteDataSource.getDetail(new LoadDetailCallback() {
             @Override
             public void onDetailCallback(Detail detail) {
+                MyMapMarkers.getInstance().setHotelList(Arrays.asList(detail.getHotels()));
+                MyMapMarkers.getInstance().setPoiList(Arrays.asList(detail.getPois()));
                 callback.onDetailCallback(detail);
             }
 

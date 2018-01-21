@@ -12,9 +12,9 @@ import java.util.List;
 
 public interface UsersDataSource {
 
-    void getUser(LoadUserCallback callback);
+    void postUser(String userName, LoadUserCallback callback);
 
-    void getPlaces(LoadPlacesCallback callback);
+    void getPlaces(String userName, LoadPlacesCallback callback);
 
     void getDetail(LoadDetailCallback callback);
 
