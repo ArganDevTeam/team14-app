@@ -60,7 +60,7 @@ public class BookingFragment extends Fragment implements BookingContract.View {
         ButterKnife.bind(this, view);
         wvBooking.setWebViewClient(new WebViewClient());
         wvBooking.setLayerType(View.LAYER_TYPE_HARDWARE, null);
-        wvBooking.loadUrl("https://www.booking.com");
+        wvBooking.loadUrl("https://www.hotelscombined.com//ProviderRedirect.ashx?key=0.28333815.-263731987.2.EUR.208427970&source=202-0&a_aid=187178&brandID=545088");
         return view;
     }
 

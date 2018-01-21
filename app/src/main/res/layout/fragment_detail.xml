@@ -1,5 +1,4 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -39,11 +38,6 @@
                 android:id="@+id/map_detail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"></com.google.android.gms.maps.MapView>
-            <!--<fragment
-                android:id="@+id/map_detail"
-                class="com.google.android.gms.maps.MapFragment"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />-->
 
         </LinearLayout>
 
@@ -82,13 +76,18 @@
                             android:textColor="@color/colorPrimary"
                             android:textSize="@dimen/text_32" />
 
+                        <ProgressBar
+                            android:id="@+id/pb_hotels"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
 
                         <android.support.v7.widget.RecyclerView
                             android:id="@+id/rv_hotels"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:clipToPadding="false"
-                            android:nestedScrollingEnabled="true" />
+                            android:nestedScrollingEnabled="true"
+                            android:visibility="gone" />
 
 
                     </LinearLayout>
@@ -104,13 +103,18 @@
                             android:id="@+id/txt_pois_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Points of interest"
+                            android:text="Points of Interest"
                             android:textColor="@color/colorPrimary"
                             android:textSize="@dimen/text_32" />
 
+                        <ProgressBar
+                            android:id="@+id/pb_pois"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
 
                         <android.support.v7.widget.RecyclerView
                             android:id="@+id/rv_pois"
+                            android:visibility="gone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:clipToPadding="false"

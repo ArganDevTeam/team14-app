@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.argandevteam.team14_app.MainActivity;
@@ -54,6 +55,11 @@ public class DetailFragment extends Fragment implements DetailContract.View, OnM
     RecyclerView hotelsRV;
     @BindView(R.id.rv_pois)
     RecyclerView poisRV;
+
+    @BindView(R.id.pb_hotels)
+    ProgressBar pbHotels;
+    @BindView(R.id.pb_pois)
+    ProgressBar pbPois;
 
     @BindView(R.id.map_detail)
     MapView map;
@@ -151,6 +157,10 @@ public class DetailFragment extends Fragment implements DetailContract.View, OnM
 
     @Override
     public void setDetail(Detail detail) {
+        pbHotels.setVisibility(View.GONE);
+        pbPois.setVisibility(View.GONE);
+        hotelsRV.setVisibility(View.VISIBLE);
+        poisRV.setVisibility(View.VISIBLE);
         setMapPosition(detail);
         hotelsAdapter.updateList(Arrays.asList(detail.getHotels()));
         poisAdapter.updateList(Arrays.asList(detail.getPois()));
