@@ -16,7 +16,7 @@ import butterknife.OnClick;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LoginFragment extends Fragment implements LoginContract.View{
+public class LoginFragment extends Fragment implements LoginContract.View {
 
 
     private LoginContract.Presenter presenter;
@@ -26,6 +26,9 @@ public class LoginFragment extends Fragment implements LoginContract.View{
         // Required empty public constructor
     }
 
+    public static LoginFragment newInstance() {
+        return new LoginFragment();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,24 +38,19 @@ public class LoginFragment extends Fragment implements LoginContract.View{
 
         ButterKnife.bind(this, view);
 
-
         loginActivity = (LoginActivity) getActivity();
 
         return view;
     }
 
     @OnClick(R.id.btn_login)
-    void onLoginButtonClicked(View view){
+    void onLoginButtonClicked(View view) {
         presenter.onLoginButtonClicked();
     }
 
     @Override
     public void setPresenter(LoginContract.Presenter presenter) {
         this.presenter = presenter;
-    }
-
-    public static LoginFragment newInstance() {
-        return new LoginFragment();
     }
 
     @Override

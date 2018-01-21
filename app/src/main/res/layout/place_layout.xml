@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_place_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:background="?android:attr/selectableItemBackground">
+
+    <ImageView
+        android:id="@+id/iv_place_image"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="#ee803e3e" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#86646464"
+        android:gravity="center_vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/cl_place_layout"
+        app:layout_constraintEnd_toEndOf="@id/cl_place_layout"
+        app:layout_constraintStart_toStartOf="@id/cl_place_layout"
+        app:layout_constraintTop_toTopOf="@+id/cl_place_layout"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="16dp">
+
+        <TextView
+            android:id="@+id/tv_place_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            tools:text="Roma" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
