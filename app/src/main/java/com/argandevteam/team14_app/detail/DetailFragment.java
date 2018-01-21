@@ -16,6 +16,15 @@ import com.argandevteam.team14_app.R;
 import com.argandevteam.team14_app.data.Detail;
 import com.argandevteam.team14_app.detail.adapter.HotelsAdapter;
 import com.argandevteam.team14_app.detail.adapter.PoisAdapter;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
 
 import org.w3c.dom.Text;
 
@@ -28,7 +37,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DetailFragment extends Fragment implements DetailContract.View{
+public class DetailFragment extends Fragment implements DetailContract.View, OnMapReadyCallback {
 
 
     public static final String TAG = "DetailFragment";
@@ -45,26 +54,38 @@ public class DetailFragment extends Fragment implements DetailContract.View{
     @BindView(R.id.rv_pois)
     RecyclerView poisRV;
 
-    private  HotelsAdapter hotelsAdapter;
+    @BindView(R.id.map_detail)
+    MapView map;
+    private GoogleMap gmap;
+
+    private HotelsAdapter hotelsAdapter;
     private PoisAdapter poisAdapter;
+
 
     public DetailFragment() {
 
 
     }
 
-    public static DetailFragment newInstance(){
+    public static DetailFragment newInstance() {
         return new DetailFragment();
     }
-
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v =  inflater.inflate(R.layout.fragment_detail, container, false);
+        View v = inflater.inflate(R.layout.fragment_detail, container, false);
         ButterKnife.bind(this, v);
+        map.onCreate(savedInstanceState);
+        map.onResume();
+        try{
+            MapsInitializer.initialize(getContext());
+        }catch (Exception e){
+
+        }
+        map.getMapAsync(this);
         initFragment();
         return v;
     }
@@ -95,6 +116,23 @@ public class DetailFragment extends Fragment implements DetailContract.View{
         cityTxt.setTypeface(soho);
         hotelTitleText.setTypeface(soho);
         poisTitleText.setTypeface(soho);
+
+    }
+
+    private void setMapPosition() {
+        cityTxt.setText("Madrid");
+        double lat = 40.415363;
+        double lon = -3.707398;
+        LatLng latLng = new LatLng(lat, lon);
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 10);
+        gmap.animateCamera(cameraUpdate);
+        gmap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+
+            }
+        });
+        gmap.getUiSettings().setScrollGesturesEnabled(false);
     }
 
     @Override
@@ -106,5 +144,11 @@ public class DetailFragment extends Fragment implements DetailContract.View{
     public void setDetail(Detail detail) {
         hotelsAdapter.updateList(Arrays.asList(detail.getHotels()));
         poisAdapter.updateList(Arrays.asList(detail.getPois()));
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        this.gmap = googleMap;
+        setMapPosition();
     }
 }

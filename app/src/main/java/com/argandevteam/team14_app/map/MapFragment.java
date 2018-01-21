@@ -6,8 +6,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.argandevteam.team14_app.R;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,6 +21,10 @@ public class MapFragment extends Fragment implements MapContract.View{
 
     private MapContract.Presenter presenter;
 
+    @BindView(R.id.map_detail)
+    MapView map;
+    private GoogleMap gmap;
+
     public MapFragment() {
         // Required empty public constructor
     }
@@ -25,8 +33,14 @@ public class MapFragment extends Fragment implements MapContract.View{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_map, container, false);
+        View v = inflater.inflate(R.layout.fragment_map, container, false);
+        ButterKnife.bind(this,v);
+        initFragment();
+        return v;
+    }
+
+    private void initFragment() {
+
     }
 
 

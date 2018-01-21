@@ -1,7 +1,10 @@
 package com.argandevteam.team14_app.data.source;
 
 import com.argandevteam.team14_app.data.Detail;
+import com.argandevteam.team14_app.data.MyMapMarkers;
 import com.argandevteam.team14_app.data.User;
+
+import java.util.Arrays;
 
 /**
  * Created by markc on 20/01/2018.
@@ -35,6 +38,8 @@ public class UsersRepository implements UsersDataSource{
         remoteDataSource.getDetail(new LoadDetailCallback() {
             @Override
             public void onDetailCallback(Detail detail) {
+                MyMapMarkers.getInstance().setHotelList(Arrays.asList(detail.getHotels()));
+                MyMapMarkers.getInstance().setPoiList(Arrays.asList(detail.getPois()));
                 callback.onDetailCallback(detail);
             }
 

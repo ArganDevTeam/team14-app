@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         UsersRemoteDataSource usersRemoteDataSource = UsersRemoteDataSource.getInstance();
         usersRepository = new UsersRepository(usersRemoteDataSource);
-
+        navigateToDetail();
     }
 
     public void navigateToDetail() {

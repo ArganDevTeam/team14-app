@@ -1,8 +1,11 @@
 package com.argandevteam.team14_app.detail;
 
 import com.argandevteam.team14_app.data.Detail;
+import com.argandevteam.team14_app.data.MyMapMarkers;
 import com.argandevteam.team14_app.data.source.UsersDataSource;
 import com.argandevteam.team14_app.data.source.UsersRepository;
+
+import java.util.Arrays;
 
 /**
  * Created by pablorojas on 20/1/18.
