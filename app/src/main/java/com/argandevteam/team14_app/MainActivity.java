@@ -15,6 +15,7 @@ import com.argandevteam.team14_app.places.PlacesFragment;
 import com.argandevteam.team14_app.places.PlacesPresenter;
 import com.argandevteam.team14_app.prebooking.PreBookingFragment;
 import com.argandevteam.team14_app.prebooking.PreBookingPresenter;
+import com.google.android.gms.maps.model.LatLng;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,8 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        navigateToPlaces();
+        navigateToDetail();
     }
 
     private void navigateToPlaces() {
@@ -64,11 +64,11 @@ public class MainActivity extends AppCompatActivity {
         new DetailPresenter(usersRepository, detailFragment);
     }
 
-    private void navigateToMap() {
+    public void navigateToMap(LatLng latLng) {
         MapFragment mapFragment = (MapFragment) getSupportFragmentManager().findFragmentByTag(MapFragment.TAG);
 
         if (mapFragment == null) {
-            mapFragment = MapFragment.newInstance();
+            mapFragment = MapFragment.newInstance(latLng);
 
             getSupportFragmentManager()
                     .beginTransaction()

@@ -16,7 +16,7 @@ public interface APIService {
     @POST("user")
     Call<User> postUser(@Field("user_name") String userName);
 
-    @GET("5a646b2b2b0000cf05f41460")
+    @GET("5a64786c2b00003107f41474")
     Call<Detail> getDetail();
 
 
